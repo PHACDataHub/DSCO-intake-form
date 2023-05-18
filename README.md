@@ -1,4 +1,4 @@
-# Template Repo
+# Intake Form
 
 [Français](https://github.com/PHACDataHub/DSCO-naming-app/edit/main/README.md#dsco-application-de-g%C3%A9n%C3%A9ration-de-nom)
 
