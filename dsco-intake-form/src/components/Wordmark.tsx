@@ -1,5 +1,6 @@
 // Wordmark (Canada logo with flag from https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg)
 import React from 'react'
+
 type WordmarkConfig = {
   textColor?: 'black' | 'white'
   variant?: 'color' | 'monochrome' // monochrome make the flag color the same as the textColor - color renders a red flag (this ensures only the 4 options from anada.ca/en/treasury-board-secretariat/services/government-communications/design-standard/colour-design-standard-fip.html#toc1 can be used )
