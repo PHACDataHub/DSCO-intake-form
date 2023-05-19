@@ -58,6 +58,7 @@ function Form() {
                     projectName: formData.projectName,
                     projectDescription: formData.projectDescription,
                     projectLead: formData.projectLead,
+                    members: formData.members,
                     hasYubi: formData.hasYubi,
                     dataSens: formData.dataSens,
                     ObjectName: formData.ObjectName,
