@@ -16,6 +16,7 @@ function Form() {
 
     const envs = ['Dev', 'Test', 'Prod', 'Exp', 'Other'];
 
+    const [projects, setProjects] = useState([]);
 
     const handleOptionChange = (event) => {
         const { value } = event.target;
@@ -80,6 +81,31 @@ function Form() {
             }
         };
         handleDownload();
+
+        // method to fetch projects from gcloud api
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch(
+                    'https://cloudresourcemanager.googleapis.com/v1/projects',
+                    {
+                        headers: {
+                            Authorization: 'Bearer YOUR_ACCESS_TOKEN',
+                        },
+                    }
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    setProjects(data.projects);
+                } else {
+                    throw new Error('Error fetching projects');
+                }
+            } catch (error) {
+                console.error('Error fetching projects:', error);
+            }
+        };
+
+        fetchProjects();
+
     }, [formData.ObjectName, formData.FolderName]);
 
 
