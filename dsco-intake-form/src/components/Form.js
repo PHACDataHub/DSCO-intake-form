@@ -89,7 +89,7 @@ function Form() {
                     'https://cloudresourcemanager.googleapis.com/v1/projects',
                     {
                         headers: {
-                            Authorization: 'AIzaSyCeZR7PtMTVZo7cED1RrLXA6Cow-BNdKeM',
+                            Authorization: '',
                         },
                     }
                 );
