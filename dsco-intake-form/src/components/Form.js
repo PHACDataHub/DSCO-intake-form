@@ -115,97 +115,104 @@ function Form() {
     };
 
     return (
-        <form className='form-data' onSubmit={event => handleSubmit(event)}>
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Client Organization:<span className='req'>*</span>
-                    </div>
-
-                    <input
-                        type="text"
-                        value={formData.clientOrg}
-                        onChange={(e) => setFormData({ ...formData, clientOrg: e.target.value })}
-                    />
+        <form className='form' onSubmit={event => handleSubmit(event)}>
+            <div className='form-group'>
+                <label for="client-org">
+                    Client Organization <span className='req'>*</span>
                 </label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="client-org"
+                    value={formData.clientOrg}
+                    onChange={(e) => setFormData({ ...formData, clientOrg: e.target.value })}
+                />
             </div>
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Project Name<span className='req'>*</span>
-                    </div>
-                    <input type="text" value={formData.projectName} onChange={(e) => setFormData({ ...formData, projectName: (e.target.value) })} maxLength="25" />
+
+            <div className='form-group'>
+                <label for="project-name">
+                    Project Name <span className='req'>*</span>
                 </label>
+                <input type="text"
+                    class="form-control"
+                    id="project-name"
+                    value={formData.projectName}
+                    onChange={(e) => setFormData({ ...formData, projectName: (e.target.value) })} maxLength="25" />
+
             </div >
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Project Description:<span className='req'>*</span>
-                    </div>
-                    <textarea value={formData.projectDescription} onChange={(e) => setFormData({ ...formData, projectDescription: (e.target.value) })} />
+            <div className='form-group'>
+                <label for="project-desc">
+                    Project Description:<span className='req'>*</span>
                 </label>
+
+                <textarea
+                    value={formData.projectDescription}
+                    class="form-control"
+                    id="project-desc"
+                    onChange={(e) => setFormData({ ...formData, projectDescription: (e.target.value) })} />
             </div >
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Project Lead (Email)<span className='req'>*</span>
-                    </div>
-                    <input type="email" value={formData.projectLead} onChange={(e) => setFormData({ ...formData, projectLead: (e.target.value) })} />
+            <div className='form-group'>
+                <label for="email">
+                    Project Lead (Email) <span className='req'>*</span>
                 </label>
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    value={formData.projectLead} onChange={(e) => setFormData({ ...formData, projectLead: (e.target.value) })} />
             </div>
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Project Members:<span className='req'>*</span>
-                    </div>
-                    <textarea value={formData.members} onChange={(e) => setFormData({ ...formData, members: (e.target.value) })} />
+            <div className='form-group'>
+                <label for="project-members">
+                    Project Members <span className='req'>*</span>
                 </label>
-            </div>
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Do you have YubiKeys?:<span className='req'>*</span>
-                    </div>
-                </label>
-                <label>
-                    <div className='form-radio'>
-                        <input type="radio" value="hasYubi" checked={formData.hasYubi === "hasYubi"} onChange={(e) => setFormData({ ...formData, hasYubi: (e.target.value) })} />
-                        Yes
-                    </div>
-                </label>
-                <label>
-                    <div className='form-radio'>
-                        <input type="radio" value="noYubi" checked={formData.hasYubi === "noYubi"} onChange={(e) => setFormData({ ...formData, hasYubi: (e.target.value) })} />
-                        No
-                    </div>
-                </label>
-            </div>
-            <div className='forminput'>
-                <label>
-                    <div className='title-input'>
-                        Data Sensitivity of Project:<span className='req'>*</span>
-                    </div>
-                </label>
-                <label>
-                    <div className='form-radio'>
-                        <input type="radio" value="unclassified" checked={formData.dataSens === 'unclassified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
-                        Unclassified Data
-                    </div>
-                </label>
-                <label>
-                    <div className='form-radio'>
 
-                        <input type="radio" value="classified" checked={formData.dataSens === 'classified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
-                        Classified Data
-                    </div>
-                </label>
+                <textarea
+                    value={formData.members}
+                    class="form-control"
+                    id="project-members"
+                    onChange={(e) => setFormData({ ...formData, members: (e.target.value) })} />
             </div>
-            <div className="env-options">
-                <p>Type of environment required <span className="req">*</span></p>
-                <ul>
-
+            <fieldset class="gc-chckbxrdio">
+                <legend>Do you have YubiKeys? <span className='req'>*</span></legend>
+                <ul class="list-unstyled lst-spcd-2">
+                    <li class="radio">
+                        <label>
+                            <input type="radio" value="hasYubi" checked={formData.hasYubi === "hasYubi"} onChange={(e) => setFormData({ ...formData, hasYubi: (e.target.value) })} />
+                            Yes
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" value="noYubi" checked={formData.hasYubi === "noYubi"} onChange={(e) => setFormData({ ...formData, hasYubi: (e.target.value) })} />
+                            No
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset class="gc-chckbxrdio">
+                <ul class="list-unstyled lst-spcd-2">
+                    <legend>Data Sensitivity of Project <span className='req'>*</span></legend>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" value="unclassified" checked={formData.dataSens === 'unclassified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
+                            Unclassified Data
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" value="classified" checked={formData.dataSens === 'classified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
+                            Classified Data
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset className="gc-chckbxrdio">
+                <legend>Type of environment required <span className="req">*</span></legend>
+                <ul className="list-unstyled lst-spcd-2">
                     {envs.map((envList) => (
-                        <li key={envList.value}>
+                        <li
+                            className="radio"
+                            key={envList.value}>
                             <label>
                                 <input
                                     type="radio"
@@ -219,8 +226,8 @@ function Form() {
                         </li>
                     ))}
                 </ul>
-            </div>
-            <button onClick={handleSubmit} disabled={(!formData.projectName || !formData.projectDescription || !formData.clientOrg || !formData.projectLead || !formData.members || !formData.hasYubi || !formData.selectedValue)}>
+            </fieldset>
+            <button class="btn btn-primary" onClick={handleSubmit} disabled={(!formData.projectName || !formData.projectDescription || !formData.clientOrg || !formData.projectLead || !formData.members || !formData.hasYubi || !formData.selectedValue)}>
                 Submit Request
             </button>
         </form >
