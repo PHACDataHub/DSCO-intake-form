@@ -115,7 +115,7 @@ function Form() {
     };
 
     return (
-        <form className='form' onSubmit={event => handleSubmit(event)}>
+        <form onSubmit={event => handleSubmit(event)}>
             <div className='form-group'>
                 <label for="client-org">
                     Client Organization <span className='req'>*</span>
@@ -172,10 +172,11 @@ function Form() {
                     id="project-members"
                     onChange={(e) => setFormData({ ...formData, members: (e.target.value) })} />
             </div>
-            <fieldset class="gc-chckbxrdio">
+
+            <fieldset className='gc-chckbxrdio'>
                 <legend>Do you have YubiKeys? <span className='req'>*</span></legend>
-                <ul class="list-unstyled lst-spcd-2">
-                    <li class="radio">
+                <ul className="list-unstyled lst-spcd-2">
+                    <li className="radio">
                         <label>
                             <input type="radio" value="hasYubi" checked={formData.hasYubi === "hasYubi"} onChange={(e) => setFormData({ ...formData, hasYubi: (e.target.value) })} />
                             Yes
@@ -189,16 +190,17 @@ function Form() {
                     </li>
                 </ul>
             </fieldset>
-            <fieldset class="gc-chckbxrdio">
-                <ul class="list-unstyled lst-spcd-2">
+
+            <fieldset className='gc-chckbxrdio'>
+                <ul className="list-unstyled lst-spcd-2">
                     <legend>Data Sensitivity of Project <span className='req'>*</span></legend>
-                    <li class="radio">
+                    <li className="radio">
                         <label>
                             <input type="radio" value="unclassified" checked={formData.dataSens === 'unclassified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
                             Unclassified Data
                         </label>
                     </li>
-                    <li class="radio">
+                    <li className="radio">
                         <label>
                             <input type="radio" value="classified" checked={formData.dataSens === 'classified'} onChange={(e) => setFormData({ ...formData, dataSens: (e.target.value) })} />
                             Classified Data
@@ -206,7 +208,8 @@ function Form() {
                     </li>
                 </ul>
             </fieldset>
-            <fieldset className="gc-chckbxrdio">
+
+            <fieldset className='gc-chckbxrdio'>
                 <legend>Type of environment required <span className="req">*</span></legend>
                 <ul className="list-unstyled lst-spcd-2">
                     {envs.map((envList) => (

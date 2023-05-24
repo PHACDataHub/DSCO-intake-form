@@ -9,10 +9,11 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <div className="form-section">
-        <Form />
 
+      <div className="form">
+        <Form />
       </div>
+
       <div className="footer">
         <Footer />
       </div>
