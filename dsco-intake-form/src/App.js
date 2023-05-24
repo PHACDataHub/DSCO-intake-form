@@ -11,6 +11,7 @@ function App() {
       </header>
 
       <div className="form">
+        <h1>DSCO Intake Form</h1>
         <Form />
       </div>
 
