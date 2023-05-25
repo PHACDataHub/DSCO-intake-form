@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# how cloud build was connected 
+
+gcloud builds triggers create github   --name=intake-form-trigger   --region ${REGION}   --repo-name=DSCO-intake-form   --repo-owner=PHACDataHub   --branch-pattern="^main$"   --build-config=apps/site-nginx/cloudbuild.yaml
