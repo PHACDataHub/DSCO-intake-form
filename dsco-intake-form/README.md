@@ -72,3 +72,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # how cloud build was connected 
 
     gcloud builds triggers create github   --name=intake-form-trigger   --region ${REGION}   --repo-name=DSCO-intake-form   --repo-owner=PHACDataHub   --branch-pattern="^main$"   --build-config=dsco-intake-form/cloudbuild.yaml
+
+# Create an artifact registry repository
+gcloud artifacts repositories create ${ARTIFACT_REGISTRY_REPO_NAME} \
+   --repository-format=docker \
+   --location=${REGION} \
+   --description="${ARTIFACT_REGISTRY_REPO_NAME}"
+ 
+# Allow our service account to read from the registry
+gcloud artifacts repositories add-iam-policy-binding ${ARTIFACT_REGISTRY_REPO_NAME} \
+    --location=${REGION} \
+    --member=serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
+    --role="roles/artifactregistry.reader"
