@@ -84,3 +84,5 @@ gcloud artifacts repositories add-iam-policy-binding ${ARTIFACT_REGISTRY_REPO_NA
     --location=${REGION} \
     --member=serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
     --role="roles/artifactregistry.reader"
+
+# added permission to cloud build service account
