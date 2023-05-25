@@ -1,10 +1,20 @@
+FROM node:18 AS builder
+WORKDIR /app
+
+# install dep.
+RUN npm ci
+
+# produces build dir.
+RUN npm build
+
+
+
 # Use a nginx Docker image
 # Pin the minor version
 FROM nginx:1.23-alpine
 
 # Copy the static HTMLs to the nginx directory
-COPY build /usr/share/nginx/html
-
+COPY --from=builder /app/build  /usr/share/nginx/html
 # Copy the nginx configuration template to the nginx config directory
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
