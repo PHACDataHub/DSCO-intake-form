@@ -1,11 +1,11 @@
 FROM node:18 AS builder
 WORKDIR /app
-
+COPY . .
 # install dep.
 RUN npm ci
 
 # produces build dir.
-RUN npm build
+RUN npm run build
 
 
 
